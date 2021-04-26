@@ -1,0 +1,101 @@
+<app-header></app-header>
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10"> Assign Roles </h5>
+                        </div>
+                        <!-- <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb-item">Dashboard sale</li>
+                </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form #form="ngForm" autocomplete="off" *ngIf="mainSer.form" (submit)="Submit(form)">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Roles</label>
+                                <!-- #rolesDD="ngModel" 
+                                    [(ngModel)]="service.form.rolesDD" -->
+                                <select name="roleDD" id="roleDD" [(ngModel)]="mainSer.form.roleId" #roleId="ngModel" [ngModelOptions]="{standalone: true}" name="roleDD" class="form-control">
+                                    <option> Select Roles</option>
+                                    <option *ngFor="let p of rolRes" [ngValue]="p.id">{{p.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Users</label>
+                                <select name="userDD" id="userDD" [(ngModel)]="mainSer.form.userId" name="userDD" #userId="ngModel" [ngModelOptions]="{standalone: true}" class="form-control" (change)="GetDatabyId($event)">
+                                    <option> Select User</option>
+                                    <option *ngFor="let p of userRes" [ngValue]="p.id">{{p.fullName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3 text-right">
+                          <button type="submit" class="btn btn-primary pull-right mr-2">Save</button>
+                        </div>
+                      </div> 
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Grid-->
+     <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                User Name
+                            </th>
+                            <th>
+                                Role
+                            </th>
+
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let res of RoleData; let i=index'>
+                                <td>
+                                    {{i+1}}
+                                </td>
+                                <td>
+                                    {{res.fullName}}
+                                </td>
+                                <td>
+                                    {{res.name}}
+                                </td>
+                                <td>
+                                    <i class="fa fa-trash" (click)="DeleteUserRoles(res)"></i>
+                                </td>
+                            </tr>
+                            <tr *ngIf='RoleData==null' style="align-items: center;">No Data Found</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> 
+
+
+    </div>
+</div>

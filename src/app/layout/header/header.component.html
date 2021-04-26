@@ -1,0 +1,265 @@
+<!-- <ng-material-multilevel-menu  
+    [configuration]='config' 
+    [items]='appitems'
+    (selectedItem)="selectedItem($event)" 
+    (menuIsReady)="menuIsReady($event)" 
+    (selectedLabel)="selectedLabel($event)">
+</ng-material-multilevel-menu> -->
+
+
+<!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+<!-- [ Mobile header ] start -->
+<div class="pc-mob-header pc-header">
+  <div class="pcm-logo">
+    <!-- <img src="/assets/images/logo.svg" alt="" class="logo logo-lg"> -->
+  </div>
+
+  <div class="pcm-toolbar">
+    <a  routerLink="" class="pc-head-link" id="mobile-collapse">
+      <div class="hamburger hamburger--arrowturn">
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
+      </div>
+      <!-- <i data-feather="menu"></i> -->
+    </a>
+    <a  routerLink="" class="pc-head-link" id="headerdrp-collapse">
+      <i data-feather="align-right"></i>
+    </a>
+    <a  routerLink="" class="pc-head-link" id="header-collapse">
+      <i data-feather="more-vertical"></i>
+    </a>
+  </div>
+</div>
+<!-- [ Mobile header ] End -->
+
+<!-- [ navigation menu ] start -->
+<nav class="pc-sidebar">
+  <div class="navbar-wrapper">
+    <div class="m-header">
+      <a href="#" class="b-brand">
+        <!-- ========   change your logo hear   ============ -->
+        <img src="assets/images/naeemLogoInner.png" alt="" class="logo logo-lg">
+        <img src="assets/images/naeemLogoInnerSm.png" alt="" class="logo logo-sm">
+      </a>
+    </div>
+
+    <div class="search-bar mt-2 mb-2">
+      <input type="search" id="search-form" class="form-control" placeholder="Search Here" />
+      <i class="fa fa-search"> </i>
+    </div>
+
+    <div class="navbar-content">
+      <ul class="pc-navbar">
+        <li class="pc-item" routerLinkActive="active">
+          <button routerLink='/dashboard' class="pc-link">
+            <span class="pc-micon"> <i class="fa fa-home"></i> </span>
+            <span class="pc-mtext"> Dashboard </span>
+            </button>
+        </li>
+
+        <li class="pc-item">
+          <button class="pc-link hasmenu">
+            <span class="pc-micon"> <i class="fa fa-user-shield"></i> </span>
+            <span class="pc-mtext"> Administration </span>
+           <i class="fa fa-angle-down"></i>
+            <!-- <span class="pc-arrow"> <i data-feather="chevron-right"></i></span> -->
+          </button>
+          <ul class="hasSubMenu noDisplay">
+            <li class="pc-item" routerLinkActive="active"><button routerLink="/home" class="pc-link"> Role Management </button></li>
+            <li class="pc-item" routerLinkActive="active"><button routerLink="/master/permission" class="pc-link"> Permissions </button></li>
+            <li class="pc-item" routerLinkActive="active"><button routerLink="/master/user-management" class="pc-link"> Create User </button></li>
+            <li class="pc-item" routerLinkActive="active"><button routerLink="/master/assgn-perms" class="pc-link"> Assign Permissions </button></li>
+            <li class="pc-item" routerLinkActive="active"><button routerLink="/master/assign-roles" class="pc-link"> Assign Roles </button></li>
+            <li class="pc-item" routerLinkActive="active"><button routerLink="/master/mst-branches" class="pc-link"> Branches </button></li>
+          </ul>
+        </li>
+
+        <!-- <li class="pc-item pc-hasmenu" routerLinkActive="active">
+          <button class="pc-link " routerLink="/master/assgn-perms">
+            <span class="pc-micon"> <i class="fa fa-file-alt"></i> </span>
+            <span class="pc-mtext"> Assign Permissions </span>
+            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+          </button>
+        </li> -->
+
+        <li class="pc-item pc-hasmenu" routerLinkActive="active">
+          <button class="pc-link " routerLink="/master/deduction-types">
+            <span class="pc-micon"> <i class="fa fa-university"></i> </span>
+            <span class="pc-mtext"> Deduction Types </span>
+            <!-- <span class="pc-arrow"><i data-feather="chevron-right"></i></span> -->
+          </button>
+        </li>
+
+        <!-- <li class="pc-item pc-hasmenu" routerLinkActive="active">
+          <button class="pc-link " routerLink="/master/assign-roles">
+            <span class="pc-micon"> <i class="fa fa-university"></i> </span>
+            <span class="pc-mtext"> Assign Roles </span>
+            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+          </button>
+        </li> -->
+
+        <!-- <li class="pc-item pc-hasmenu" routerLinkActive="active">
+          <button class="pc-link " routerLink="/master/mst-branches">
+            <span class="pc-micon"> <i class="fa fa-bars"></i> </span>
+            <span class="pc-mtext"> Branches </span>
+            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+          </button>
+        </li> -->
+
+        <li class="pc-item">
+          <button class="pc-link hasmenu">
+            <span class="pc-micon"> <i class="fa fa-university"> </i> </span>
+            <span class="pc-mtext"> Banking </span>
+            <!-- <span class="pc-arrow"><i data-feather="chevron-right"></i></span> -->
+          </button>
+          <!-- <ul class="hasSubMenu noDisplay">
+            <li class="pc-item"><button class="pc-link" > Bank Deposit </button></li>
+            <li class="pc-item"><button class="pc-link" > Petty Cash </button></li>
+            <li class="pc-item"><button class="pc-link" > Incoming Payment </button></li>
+            <li class="pc-item"><button class="pc-link" > Fine / Deduction </button></li>
+            <li class="pc-item"><button class="pc-link" > Salary Disbursement </button></li>
+            <li class="pc-item"><button class="pc-link" > Cash Denomination </button></li>
+          </ul> -->
+        </li>
+
+        <!-- <li class="pc-item pc-caption">
+          <label>Admin Panel</label>
+          <span>7+ Admin Panel Demos</span>
+        </li> -->
+        <li class="pc-item">
+          <button class="pc-link">
+            <span class="pc-micon"> <i class="fa fa-search"> </i> </span>
+            <span class="pc-mtext" style="position: relative; float: right; top: -3px; right: 19px; line-height: 14px;"> Customer/ Guarantor <br/> Search </span>
+          </button>
+          
+        </li>
+
+        <li class="pc-item">
+          <button class="pc-link ">
+            <span class="pc-micon"> <i class="fa fa-user"> </i> </span>
+            <span class="pc-mtext"> Photo Utility </span>
+          </button>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ navigation menu ] end -->
+<!-- [ Header ] start -->
+<header class="pc-header ">
+  <div class="header-wrapper">
+    
+    <div id="menu-collapse" class="menu-btn"> 
+      <a> <i class="fa fa-bars"></i> </a>
+    </div>
+
+    <div class="branch-login"> 
+      <p> <strong> Branch: </strong> Fateh Gar </p>	
+      <p> <strong> Login At: </strong> 12/29/2020 5:17:18 PM  </p>	
+    </div>
+
+    <div class="ml-auto">
+      <ul class="list-unstyled">
+        <li class="dropdown pc-h-item">
+          <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">
+            <img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
+            <span>
+              <span class="user-name">Joseph William</span>
+              <span class="user-desc">Administrator</span>
+            </span>
+          </a>
+          
+          <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+            <div class=" dropdown-header">
+              <h6 class="text-overflow m-0">Welcome !</h6>
+            </div>
+            <a href="#" class="dropdown-item">
+              <i data-feather="user"></i>
+              <span>My Account</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i data-feather="settings"></i>
+              <span>Settings</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i data-feather="life-buoy"></i>
+              <span>Support</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <i data-feather="lock"></i>
+              <span>Lock Screen</span>
+            </a>
+            <button class="dropdown-item" (click)="OnLogout()">
+              <i data-feather="power"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+<!-- [ Header ] end -->
+
+  <!-- sidebar element declaration -->
+
+
+  <!-- <div class="pc-sidebar main-header" id="header-section">
+    <div class="m-header">
+      <button  routerLink="" class="b-brand">
+        <img src="assets/images/naeemLogoInner.png" alt="" class="logo logo-lg">
+        <img src="assets/images/naeemLogoInnerSm.png" alt="" class="logo logo-sm">
+      </button>
+    </div>
+
+    <div class="search-bar mt-2 mb-2">
+      <input type="search" id="search-form" class="form-control" placeholder="Search Here" />
+      <i class="fa fa-search"> </i>
+    </div>
+
+    <ejs-sidebar id="sidebar-treeview" class="dock-menu" #sidebarTreeviewInstance [enableDock]='enableDock' [dockSize]='dockSize' (created)="onCreated($event)" style="visibility: hidden"
+      [mediaQuery]='mediaQuery' [target]='target' (close)="onClose($event)">
+      <div class="main-menu">
+          <div>
+              <ejs-treeview id="main-treeview" #treeviewInstance [fields]='field' expandOn='Click'></ejs-treeview>
+          </div>
+      </div>
+    </ejs-sidebar>
+  </div> -->
+            <!-- end of sidebar element -->
+
+
+
+
+<!-- <div class="" style="float: right; position: absolute; right: 0px; padding: 25px; background-color: white; z-index: 1000000;">
+  <div *ngFor="let test of tests"> 
+  <input type="checkbox"
+    id="">
+    {{test.name}} 
+  <div class="btn-group">
+    <label class="btn btn-outline-secondary"
+      *ngFor="let item of test.items"
+      (click)="selectItem(item,test.id)"
+      [ngClass]="{active: isSelectedItem(item, test.id) }">
+      <input
+      type="radio"
+      name="something_{{test.id}}"/>
+      {{item}}
+    </label>
+  </div>
+</div>
+</div> -->
+
+<!-- [ navigation menu ] end -->
+<!-- [ Header ] start -->

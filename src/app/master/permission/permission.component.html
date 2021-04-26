@@ -1,0 +1,121 @@
+<!-- <div class="wrapper"> -->
+<app-header></app-header>
+
+<div class="pc-container">
+  <div class="pcoded-content">
+    <!-- [ breadcrumb ] start -->
+    <div class="page-header">
+      <div class="page-block">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="page-header-title">
+              <h5 class="m-b-10"> Permissions </h5>
+            </div>
+            <!-- <ul class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                  <li class="breadcrumb-item">Dashboard sale</li>
+              </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <form #form="ngForm" autocomplete="off" *ngIf="ser.model" (submit)="Submit(form)">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Parent Id</label>
+                <input type="text" name="parentId" #parentId="ngModel" [(ngModel)]="ser.model.parentId"
+                  class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Title</label>
+                <input type="text" name="title" #title="ngModel" [(ngModel)]="ser.model.title" class="form-control"
+                  required>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Url Link</label>
+                <input type="text" name="url" #url="ngModel" [(ngModel)]="ser.model.url" class="form-control" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-3 text-right">
+              <button type="submit" *ngIf="btnSve" class="btn btn-primary pull-right mr-2">Save</button>
+              <button type="button" *ngIf="!btnSve" (click)="Update(ser.model)"
+                class="btn btn-primary pull-right">Update</button>
+              <button type="reset" (click)="resetform()" class="btn btn-danger pull-right">Cancel</button>
+            </div>
+          </div>
+
+
+        </form>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!--Grid start-->
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                ID
+              </th>
+              <th>
+                Parent ID
+              </th>
+              <th>
+                Title
+              </th>
+              <th>
+                Url Link
+              </th>
+
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr *ngFor='let ress of response; let i=index'>
+                <td>
+                  {{i+1}}
+                </td>
+                <td>
+                  {{ress.parentId}}
+                </td>
+                <td>
+                  {{ress.title}}
+                </td>
+                <td>
+                  {{ress.url}}
+                </td>
+                <td>
+                  <i class="fa fa-edit" (click)="Edit(ress)" style="margin-right: 15px;"></i>
+                  <i class="fa fa-trash" (click)="RemoveRole(ress)"></i>
+                </td>
+              </tr>
+              <tr *ngIf='response==null' style="align-items: center;">No Data Found</tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+  <app-footer></app-footer>
+-->

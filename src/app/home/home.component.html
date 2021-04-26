@@ -1,0 +1,112 @@
+<app-header></app-header>
+
+<div class="pc-container">
+  <div class="pcoded-content">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+          <div class="page-block">
+              <div class="row align-items-center">
+                  <div class="col-md-6">
+                      <div class="page-header-title">
+                          <h5 class="m-b-10"> Role Management </h5>
+                      </div>
+                      <!-- <ul class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                          <li class="breadcrumb-item">Dashboard sale</li>
+                      </ul> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="row"> 
+        <div class="col-md-12">
+          <form #form="ngForm" autocomplete="off" *ngIf="ser.formModel" (submit)="Submit(form)">
+            <div class="row">
+  
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating"> Role Name </label>
+                  <input type="text" name="Name" #Name="ngModel" [(ngModel)]="ser.formModel.Name" class="form-control" required>
+                </div>
+              </div>
+  
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating"> Role Description </label>
+                  <input type="text" name="NormalizedName" #NormalizedName="ngModel"
+                    [(ngModel)]="ser.formModel.NormalizedName" class="form-control" required>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="row">
+              <div class="col-md-12 text-right mb-3">
+                <button type="submit" *ngIf="btnSve" class="btn btn-primary pull-right mr-2">Save</button>
+                <button type="button" *ngIf="!btnSve" (click)="Update(ser.formModel)"
+                  class="btn btn-primary pull-right">Update</button>
+                <button type="reset" (click)="resetform()" class="btn btn-danger pull-right">Cancel</button>
+                <!-- <button type="button" class="btn btn-primary pull-right" (click)="goto()">Redirect</button> -->
+                <!-- <h3 routerLink='/master/Department' routerLinkActive='active'>Redirect</h3> -->
+              </div>
+            </div>
+        </form>
+        </div>
+      </div>
+ 
+            
+        
+
+      <div class="row"> 
+        <div class="col-md-12"> 
+           <!--Grid start-->
+
+          <div class="table-responsive">
+          <table class="table">
+          <thead class=" text-primary">
+          <th>
+            ID
+          </th>
+          <th>
+            Roll Name
+          </th>
+          <th>
+            Description
+          </th>
+          <th>Action</th>
+          </thead>
+          <tbody>
+          <tr *ngFor='let ress of response; let i=index'>
+            <td>
+              {{i+1}}
+            </td>
+            <td>
+              {{ress.name}}
+            </td>
+            <td>
+              {{ress.normalizedName}}
+            </td>
+            <td>
+              <i class="fa fa-edit" (click)="Edit(ress)" style="margin-right: 15px;"></i>
+              <i class="fa fa-trash" (click)="RemoveRole(ress)"></i>
+            </td>
+          </tr>
+          <tr *ngIf='response==null'>No Data Found</tr>
+          </tbody>
+          </table>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+</div> <!--Grid End-->
+
+<!--- Footer -->
+<app-footer></app-footer>
+

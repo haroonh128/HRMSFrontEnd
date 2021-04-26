@@ -1,0 +1,100 @@
+<app-header></app-header>
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10"> Assign Permissions </h5>
+                        </div>
+                        <!-- <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb-item">Dashboard sale</li>
+                </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form #form="ngForm" autocomplete="off" *ngIf="service.form" (submit)="Submit(form)">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Roles</label>
+                                <!-- #rolesDD="ngModel" 
+                                    [(ngModel)]="service.form.rolesDD" -->
+                                <select name="rolesDD" id="rolesDD" [(ngModel)]="roleId" name="rolesDD" class="form-control">
+                                    <option> Select Roles</option>
+                                    <option *ngFor="let p of rolsClass" [ngValue]="p.id">{{p.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!--Grid-->
+        <div class="row">
+            <div class="col-md-12">
+                <!--Grid start-->
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Parent ID
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Url Link
+                            </th>
+
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let ress of prmRsp; let i=index'>
+                                <td>
+                                    {{i}}
+                                </td>
+                                <td>
+                                    {{ress.parentId}}
+                                </td>
+                                <td>
+                                    {{ress.title}}
+                                </td>
+                                <td>
+                                    {{ress.url}}
+                                </td>
+                                <td>
+                                <input type="checkbox" name="chkbxSlct" (click)="AddRemove(ress,$event)">
+                                </td>
+                            </tr>
+                            <tr *ngIf='response==null' style="align-items: center;">No Data Found</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-3 text-right">
+              <button type="submit"  class="btn btn-primary pull-right mr-2" (click)="SaveRolesPermissions()">Save</button>
+              <!-- <button type="button"  (click)="Update(ser.model)"
+                class="btn btn-primary pull-right">Update</button>
+              <button type="reset" (click)="resetform()" class="btn btn-danger pull-right">Cancel</button> -->
+            </div>
+          </div>
+    </div>
+</div>

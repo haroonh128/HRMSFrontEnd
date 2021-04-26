@@ -1,0 +1,110 @@
+<!-- <div class="wrapper"> -->
+<app-header></app-header>
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10"> Master Deduction Types </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form #form="ngForm" autocomplete="off" *ngIf="ser.model" (submit)="Submit(form)">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Name</label>
+                                <input type="text" name="name" #name="ngModel" [(ngModel)]="ser.model.name"
+                                    class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- <div class="form-group">
+                                <label class="bmd-label-floating">Active</label>
+                                <input type="checkbox" name="isActive" #isActive="ngModel"
+                                    [(ngModel)]="ser.model.isActive" class="form-control" required>
+                            </div> -->
+                            <div class="custom-control custom-checkbox mt-4"> 
+                                <input checked="" class="custom-control-input input-primary" id="deductionTypeCheck" type="checkbox" name="isActive" #isActive="ngModel"
+                                [(ngModel)]="ser.model.isActive">
+                                <label class="custom-control-label" for="deductionTypeCheck"> Active </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3 text-right">
+                            <button type="submit" *ngIf="btnSve" class="btn btn-primary pull-right mr-2">Save</button>
+                            <button type="button" *ngIf="!btnSve" (click)="Update(ser.model)"
+                                class="btn btn-primary pull-right">Update</button>
+                            <button type="reset" (click)="resetform()" class="btn btn-danger pull-right">Cancel</button>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <!--Grid start-->
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Active
+                            </th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let ress of response; let i=index'>
+                                <td>
+                                    {{i}}
+                                </td>
+                                <td>
+                                    {{ress.name}}
+                                </td>
+                                <td>
+                                    <!-- <input type="checkbox" name="isActive" #isActive="ngModel"
+                                    [(ngModel)]="ress.isActive" class="form-control"> -->
+                                    <div class="custom-control custom-checkbox"> 
+                                        <input checked="" class="custom-control-input input-primary" id="" type="checkbox" name="isActive" #isActive="ngModel"
+                                        [(ngModel)]="ress.isActive" disabled>
+                                        <label class="custom-control-label" for="">  </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <i class="fa fa-edit" (click)="Edit(ress)" style="margin-right: 15px;"></i>
+                                    <i class="fa fa-trash" (click)="RemoveRole(ress)"></i>
+                                </td>
+                            </tr>
+                            <tr *ngIf='response==null' style="align-items: center;">No Data Found</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+      <app-footer></app-footer>
+    -->

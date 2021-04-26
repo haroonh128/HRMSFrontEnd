@@ -1,0 +1,100 @@
+<app-header></app-header>
+
+  <div class="pc-container">
+    <div class="pcoded-content">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+        <div class="page-block">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div class="page-header-title">
+                <h5 class="m-b-10"> Department </h5>
+              </div>
+              <!-- <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb-item">Dashboard sale</li>
+                </ul> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div class="row"> 
+    <div class="col-md-12">
+        <form #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="Submit(form)">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group"> 
+                        <label>Department Code</label>
+                        <input name="code" class="form-control" #code="ngModel" type="text" [(ngModel)]="service.formData.code">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group"> 
+                        <label>Department Name</label>
+                        <input name="deptName" class="form-control" #code="ngModel" type="text" [(ngModel)]="service.formData.deptName">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group"> 
+                        <label class="txtbox">Level</label>
+                        <input name="deptLevel" class="form-control" #deptLevel='ngModel' [(ngModel)]="service.formData.deptLevel" type="text">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="txtbox">Parent Department</label>
+                        <input name="parentDept" class="form-control" type="text" #parentDept='ngModel' [(ngModel)]="service.formData.parentDept">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group"> 
+                        <label class="txtbox">Department Head</label>
+                        <input name="deptHead" class="form-control" type="text" #deptHead='ngModel' [(ngModel)]="service.formData.deptHead">
+                    </div>
+                </div>
+        
+                <div class="col-md-4">
+                    <!-- <div class="form-group"> 
+                        <label class="txtbox">Active</label>
+                        <input  name="flgActive" class="form-control" #flgActive='ngModel' [(ngModel)]="service.formData.flgActive" type="checkbox">
+                    </div> -->
+
+                    <div class="form-group" style="margin-top: 27px;">
+                        <div class="custom-control custom-checkbox">
+                          <input name="flgActive" class="custom-control-input input-primary" id="flagActive" #flgActive='ngModel' [(ngModel)]="service.formData.flgActive" type="checkbox">
+                          <label class="custom-control-label" for="flagActive"> Active </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        
+        
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group"> 
+                        <label class="txtbox">Prefix</label>
+                        <input name="deptPrefix" class="form-control" type="text" #deptPrefix='ngModel' [(ngModel)]="service.formData.deptPrefix">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-2"> 
+                        <button class="btn btn-primary mr-2" type="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        
+        </form>
+        
+    </div>
+</div>
+
+</div>
+</div>

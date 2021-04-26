@@ -1,0 +1,180 @@
+<app-header></app-header>
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10"> Branches </h5>
+                        </div>
+                        <!-- <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb-item">Dashboard sale</li>
+                </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form #form="ngForm" autocomplete="off" *ngIf="mainSer.form" (submit)="Submit(form)">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Branch</label>
+                                <select class="form-control" [(ngModel)]="mainSer.form.brnchId" #brnchId="ngModel"
+                                    [ngModelOptions]="{standalone: true}" (change)="BranchChange($event)">
+                                    <option selected="selected" [ngValue]="0"> Select Branch</option>
+                                    <option *ngFor="let p of gridDD" [ngValue]="p.acCode">{{p.acName}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Bank Account</label>
+                                <select name="bacDD" id="bacDD" [(ngModel)]="mainSer.form.baDD" #baDD="ngModel"
+                                    [ngModelOptions]="{standalone: true}" class="form-control">
+                                    <option selected="selected" [ngValue]="0"> Select Bank Account</option>
+                                    <option *ngFor="let p of bankAccountDD" [ngValue]="p.acCode">{{p.acCode+p.acName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Petty Cash</label>
+                                <select name="phDD" id="phDD" [(ngModel)]="mainSer.form.pettyDD" #petyDD="ngModel"
+                                    [ngModelOptions]="{standalone: true}" class="form-control">
+                                    <option selected="selected" [ngValue]="0"> Select Petty Cash</option>
+                                    <option *ngFor="let p of pettyRes" [ngValue]="p.acCode">{{p.acCode+p.acName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Salaries Payable</label>
+                                <select name="spDD" id="spDD" [(ngModel)]="mainSer.form.salDD" #salDD="ngModel"
+                                    [ngModelOptions]="{standalone: true}" class="form-control">
+                                    <option selected="selected" [ngValue]="0"> Select Salaries Payable</option>
+                                    <option *ngFor="let p of salaryDDres" [ngValue]="p.acCode">{{p.acCode+p.acName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Cash In Hand</label>
+                                <select name="cihDD" id="cihDD" [(ngModel)]="mainSer.form.cshInhndDD"
+                                    #cshInhndDD="ngModel" [ngModelOptions]="{standalone: true}" class="form-control">
+                                    <option selected="selected" [ngValue]="567"> Select Cash In Hand</option>
+                                    <option *ngFor="let p of cashInHnd" [ngValue]="p.acCode">{{p.acCode+p.acName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Advances To Employees</label>
+                                <select name="ateDD" id="ateDD" [(ngModel)]="mainSer.form.advDD"
+                                    [ngModelOptions]="{standalone: true}" class="form-control">
+                                    <option selected="selected" [ngValue]="457"> Select Advances To Employees</option>
+                                    <option *ngFor="let p of advRes" [ngValue]="p.acCode">{{p.acCode+p.acName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3 text-right">
+                            <button type="submit" *ngIf="btnSve" class="btn btn-primary pull-right mr-2">Save</button>
+                            <button type="button" *ngIf="!btnSve" class="btn btn-success pull-right mr-2" (click)="Update(mainSer.form)">Update</button>
+                            <button type="reset" class="btn btn-primary pull-right mr-2" (click)="Reset()">Cancel</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--Grid-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Branch Code
+                            </th>
+                            <th>
+                                Advance
+                            </th>
+                            <th>
+                                Salary Account
+                            </th>
+                            <th>
+                                Cash In Hand
+                            </th>
+                            <th>
+                                Bank Account
+                            </th>
+                            <th>
+                                Petty Cash
+                            </th>
+
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let res of BranchData; let i=index'>
+                                <td>
+                                    {{i+1}}
+                                </td>
+                                <td>
+                                    {{res.brnchId}}
+                                </td>
+                                <td>
+                                    {{res.advDD}}
+                                </td>
+                                <td>
+                                    {{res.salDD}}
+                                </td>
+                                <td>
+                                    {{res.cshInhndDD}}
+                                </td>
+                                <td>
+                                    {{res.baDD}}
+                                </td>
+                                <td>
+                                    {{res.petyDD}}
+                                </td>
+                                
+                                <td>
+                                    <i class="fa fa-edit" (click)="Edit(res)" style="margin-right: 15px;"></i>
+                                </td>
+                            </tr>
+                            <tr *ngIf='BranchData==null' style="align-items: center;">No Data Found</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
